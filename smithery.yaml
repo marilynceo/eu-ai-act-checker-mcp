@@ -1,0 +1,40 @@
+# Smithery.ai Deployment Manifest for eu-ai-act-checker-mcp
+name: eu-ai-act-checker-mcp
+version: 1.0.0
+description: Classify AI systems by EU AI Act risk category, check prohibited practices
+  (Art.5), assess high-risk designation (Annex I+III), GPAI obligations (Art. 51-56),
+  transparency requirements (Art. 50), conformity procedures (Art. 43), and compliance
+  deadlines.
+gateway: https://eu-ai-act-checker.zhc-mcp.org
+runtime:
+  language: python
+  entrypoint: src/server.py
+  transport: stdio
+vendor: Zero Human Company
+tags:
+- mcp
+- mcp-server
+- ai-agent
+- zero-human-company
+pricing:
+  type: prepaid
+  trial: 50 free calls
+  packages:
+  - name: 500 Credits
+    price: 5.0
+    currency: EUR
+    credits: 500
+  - name: 5.000 Credits
+    price: 9.0
+    currency: EUR
+    credits: 5000
+  - name: 25.000 Credits
+    price: 19.0
+    currency: EUR
+    credits: 25000
+privacy: No data stored on servers. All inputs processed in-memory. See PRIVACY.md.
+tools:
+- name: classify_risk_level
+  description: Description of the AI system's purpose and functionality
+- name: check_prohibited_practices
+  description: Full description of the AI system's behavior
